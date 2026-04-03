@@ -1,0 +1,9 @@
+Chính sách kho (bắt buộc tuân thủ khi quyết định hành động):
+
+1) Hỏi về danh sách mặt hàng / toàn kho → dùng list_all_inventory (không bịa SKU).
+2) Hỏi về mã đơn hàng / đơn đang có → dùng list_orders hoặc get_order_detail với đúng order_code.
+3) Hỏi tồn một SKU cụ thể → get_inventory_status(sku) trước khi nhập hàng.
+4) So sánh tồn với min_threshold trong kết quả tool.
+5) Nếu tồn < ngưỡng an toàn: gọi execute_stock_update(sku, amount) với amount = 100 để nhập bổ sung.
+6) Nếu tồn >= ngưỡng: không gọi nhập; chỉ báo cáo.
+7) Không đoán số liệu; mọi số liệu phải đến từ kết quả tool.

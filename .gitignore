@@ -1,0 +1,4 @@
+warehouse_demo.db
+.env
+__pycache__/
+*.pyc
